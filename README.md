@@ -1,3 +1,3 @@
-## Popcorn Planet 🍿
+## Movies Mate 🍿
 
-### Popcorn Planet is a web based Movies watchlist tool
+### Movies Mate is a web based Movies watchlist tool
