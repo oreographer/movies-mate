@@ -30,19 +30,20 @@ export default function AddMovie({ addMovie, close }) {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      className="bg-white shadow-md rounded px-5 lg:px-8 pt-6 pb-8 space-y-2 lg:space-y-4"
     >
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold mb-4">Add new movie</h2>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl lg:text-2xl font-bold ">Add new movie</h2>
         <button
           onClick={() => close()}
           type="button"
-          className=" font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className=" font-bold rounded focus:outline-none focus:shadow-outline"
         >
           Close
         </button>
       </div>
-      <div className="mb-4">
+
+      <div>
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="title"
@@ -58,7 +59,7 @@ export default function AddMovie({ addMovie, close }) {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
-      <div className="mb-4">
+      <div>
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="description"
@@ -72,7 +73,7 @@ export default function AddMovie({ addMovie, close }) {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
-      <div className="mb-4">
+      <div>
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="releaseYear"
@@ -87,7 +88,7 @@ export default function AddMovie({ addMovie, close }) {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
-      <div className="mb-4">
+      <div>
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="genre"
@@ -102,10 +103,11 @@ export default function AddMovie({ addMovie, close }) {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
-      <div className="flex items-center justify-between">
+
+      <div className="pt-3">
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-black text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline"
         >
           Add
         </button>

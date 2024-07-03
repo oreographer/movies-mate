@@ -12,19 +12,10 @@ import {
   BsDash,
 } from "react-icons/bs";
 import Head from "next/head";
+import { SITE_NAME } from "@/_data";
 
 export default function Watchlists({ watchedMovies }) {
   const [watchedList, setWatchlist] = useState(watchedMovies);
-
-  useEffect(() => {
-    async function fetchMovies() {
-      const response = await fetch("/api/movies");
-      const data = await response.json();
-      setWatchlist(data.data);
-    }
-
-    fetchMovies();
-  }, []);
 
   const updateMovie = async (updatedMovie) => {
     const response = await fetch("/api/movies/update", {
@@ -68,10 +59,10 @@ export default function Watchlists({ watchedMovies }) {
   return (
     <>
       <Head>
-        <title>Watchlists | Popcorn planet</title>
+        <title>Watchlists | {SITE_NAME}</title>
       </Head>
 
-      <div className="container mx-auto px-5 lg:px-10 py-12 lg:py-14">
+      <div className="max-w-7xl mx-auto px-5 lg:px-10 py-12 lg:py-14">
         <h1 className="text-3xl lg:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-red-300 via-white to-violet-400 uppercase">
           Watchlists
         </h1>
@@ -84,7 +75,7 @@ export default function Watchlists({ watchedMovies }) {
             </div>
           </Link>
 
-          <Link href={"/movies"}>
+          <Link href={"/all-movies"}>
             <div className="text-white flex items-center gap-2">
               <span>All Movies</span>
               <BsArrowRight />

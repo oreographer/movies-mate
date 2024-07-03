@@ -5,6 +5,7 @@ import {
   BsThreeDotsVertical,
 } from "react-icons/bs";
 import UpdatedMovie from "./UpdateMovie";
+import Link from "next/link";
 
 export default function MovieItem({
   movie,
@@ -29,7 +30,7 @@ export default function MovieItem({
           close={() => setEdit(false)}
         />
       ) : (
-        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full h-fit ">
+        <div className="bg-white shadow-md rounded px-6 lg:px-8 pt-5 lg:pt-6 pb-7 w-full h-fit ">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-bold mb-2">{movie.title}</h2>
 
@@ -64,23 +65,34 @@ export default function MovieItem({
               )}
             </div>
           </div>
-          <p className="text-gray-700 text-base mb-2">{movie.description}</p>
-          <p className="text-gray-700 text-sm">
-            Release Year: {movie.releaseYear}
+          <p className="text-gray-700 text-base mb-2">
+            {movie.description.slice(0, 180)}
+            {movie.description.length > 180 && "..."}
           </p>
-          <p className="text-gray-700 text-sm">Genre: {movie.genre}</p>
-          <p className="text-gray-700 text-sm">
-            Watched: {movie.watched ? "Yes" : "No"}
-          </p>
+          <p className="text-sm">Release Year: {movie.releaseYear}</p>
+          <p className="text-sm">Genre: {movie.genre}</p>
+          <p className="text-sm">Watched: {movie.watched ? "Yes" : "No"}</p>
           <div className="flex items-center justify-between mt-4">
             <button
               onClick={() => toggleWatchStatus(movie)}
-              className="bg-black hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="border-black border font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              {movie.watched ? <BsBookmarkHeartFill /> : <BsBookmarkHeart />}
+              {movie.watched ? (
+                <BsBookmarkHeartFill size={18} />
+              ) : (
+                <BsBookmarkHeart size={18} />
+              )}
             </button>
+
+            <Link
+              href={"/movie/" + movie._id}
+              className="border-black border text-sm font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              View details
+            </Link>
           </div>
-          {/* pending rating and review UI here */}
+
+          {/* pending rating and review UI in future */}
         </div>
       )}
     </>

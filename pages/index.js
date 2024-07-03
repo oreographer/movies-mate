@@ -6,6 +6,7 @@ import MovieItem from "@/components/MovieItem";
 import Link from "next/link";
 import { BsArrowLeft, BsArrowRight, BsPlus } from "react-icons/bs";
 import Head from "next/head";
+import { SITE_NAME } from "@/_data";
 
 export default function Home({ movies }) {
   const [moviesList, setMoviesList] = useState(movies);
@@ -59,17 +60,17 @@ export default function Home({ movies }) {
   return (
     <>
       <Head>
-        <title>Popcorn Planet | A movie watchlist tool</title>t
+        <title>{SITE_NAME} | A movie watchlist tool</title>t
       </Head>
 
-      <div className="mx-auto px-5 lg:px-10 py-12 lg:py-14 ">
+      <div className="mx-auto max-w-7xl px-5 lg:px-10 py-12 lg:py-14 ">
         <h1 className="text-3xl lg:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-red-300 via-white to-violet-400 uppercase">
-          Popcorn Planet
+          Latest Movies
         </h1>
 
         <div className="grid grid-cols-4 lg:grid-cols-6 gap-5 lg:gap-7">
           <div className="col-span-2 lg:col-span-1">
-            <Link href={"/movies"}>
+            <Link href={"/all-movies"}>
               <div className="bg-white/90 text-black flex items-center justify-center gap-2 font-bold py-2 px-4 rounded text-center">
                 <BsArrowLeft />
                 <span>All Movies</span>
@@ -166,8 +167,6 @@ export async function getServerSideProps() {
 
   const movies = await Movie.find({}).limit(3);
   const watchedMovies = await Movie.find({ watched: true });
-
-  console.log(movies);
 
   return { props: JSON.parse(JSON.stringify({ movies, watchedMovies })) };
 }

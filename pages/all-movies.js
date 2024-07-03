@@ -6,8 +6,9 @@ import MovieList from "../components/MovieList";
 import Link from "next/link";
 import { BsArrowLeft, BsArrowRight, BsDash } from "react-icons/bs";
 import Head from "next/head";
+import { SITE_NAME } from "@/_data";
 
-export default function Movies({ movies }) {
+export default function AllMovies({ movies }) {
   const [moviesList, setMoviesList] = useState(movies);
 
   useEffect(() => {
@@ -65,10 +66,10 @@ export default function Movies({ movies }) {
   return (
     <>
       <Head>
-        <title>All Movies | Popcorn planet</title>
+        <title>All Movies | {SITE_NAME}</title>
       </Head>
 
-      <div className="mx-auto px-5 lg:px-10 py-12 lg:py-14">
+      <div className="mx-auto max-w-7xl px-5 lg:px-10 py-12 lg:py-14">
         <h1 className="text-3xl lg:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-red-300 via-white to-violet-400 uppercase">
           All Movies
         </h1>
@@ -102,7 +103,7 @@ export default function Movies({ movies }) {
           <AddMovie addMovie={addMovie} />
         )}
 
-        <Link href={"/Movies"}>
+        <Link href={"/all-movies"}>
           <div className="text-white flex items-center justify-center gap-2 mt-7">
             <BsDash />
             <span>Back to Top</span>
