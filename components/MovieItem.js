@@ -3,6 +3,11 @@ import {
   BsBookmarkHeartFill,
   BsBookmarkHeart,
   BsThreeDotsVertical,
+  BsBookmarkFill,
+  BsBookmark,
+  BsArrowRight,
+  BsBookmarkCheck,
+  BsBookmarkCheckFill,
 } from "react-icons/bs";
 import UpdatedMovie from "./UpdateMovie";
 import Link from "next/link";
@@ -69,27 +74,31 @@ export default function MovieItem({
             {movie.description.slice(0, 180)}
             {movie.description.length > 180 && "..."}
           </p>
-          <p className="text-sm">Release Year: {movie.releaseYear}</p>
-          <p className="text-sm">Genre: {movie.genre}</p>
-          <p className="text-sm">Watched: {movie.watched ? "Yes" : "No"}</p>
-          <div className="flex items-center justify-between mt-4">
+
+          <div className="flex items-center gap-2 lg:gap-4 flex-wrap font-semibold">
+            <p>Release Year: {movie.releaseYear}</p>
+            <p>Genre: {movie.genre}</p>
+            <p>Watched: {movie.watched ? "Yes" : "No"}</p>
+          </div>
+
+          <div className="flex items-center justify-between mt-4 mb-2">
+            <Link href={"/movie/" + movie._id}>
+              <div className="flex items-center gap-2 text-sm font-bold underline text-green-800">
+                <span>View details</span>
+                <BsArrowRight />
+              </div>
+            </Link>
+
             <button
               onClick={() => toggleWatchStatus(movie)}
-              className="border-black border font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className=" font-bold rounded focus:outline-none focus:shadow-outline"
             >
               {movie.watched ? (
-                <BsBookmarkHeartFill size={18} />
+                <BsBookmarkCheckFill size={20} />
               ) : (
-                <BsBookmarkHeart size={18} />
+                <BsBookmark size={20} />
               )}
             </button>
-
-            <Link
-              href={"/movie/" + movie._id}
-              className="border-black border text-sm font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              View details
-            </Link>
           </div>
 
           {/* pending rating and review UI in future */}

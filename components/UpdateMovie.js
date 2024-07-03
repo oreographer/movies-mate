@@ -40,7 +40,7 @@ export default function UpdatedMovie({ movie, updateMovie, close }) {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      className="bg-white shadow-md rounded px-5 lg:px-8 py-5 lg:py-7 space-y-2 lg:space-y-4"
     >
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl lg:text-2xl font-bold ">Update movie</h2>

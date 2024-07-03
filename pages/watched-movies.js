@@ -55,32 +55,37 @@ export default function Watchlists({ watchedMovies }) {
     movie.review = review;
     updateMovie(movie);
   };
+  const title = `Watched Movies | ${SITE_NAME}`;
 
   return (
     <>
       <Head>
-        <title>Watchlists | {SITE_NAME}</title>
+        <title>{title}</title>
       </Head>
 
       <div className="max-w-7xl mx-auto px-5 lg:px-10 py-12 lg:py-14">
         <h1 className="text-3xl lg:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-red-300 via-white to-violet-400 uppercase">
-          Watchlists
+          Watched Movies
         </h1>
 
-        <section className="mb-7 flex space-x-7 items-center">
-          <Link href={"/"}>
-            <div className="text-white flex items-center gap-2">
-              <BsArrowLeft />
-              <span>Back to Home</span>
-            </div>
-          </Link>
+        <section className="flex w-full items-center justify-between mb-7 text-white">
+          <div className="flex space-x-7 items-center">
+            <Link href={"/"}>
+              <div className="flex items-center gap-2">
+                <BsArrowLeft />
+                <span>Back to Home</span>
+              </div>
+            </Link>
 
-          <Link href={"/all-movies"}>
-            <div className="text-white flex items-center gap-2">
-              <span>All Movies</span>
-              <BsArrowRight />
-            </div>
-          </Link>
+            <Link href={"/all-movies"}>
+              <div className="flex items-center gap-2">
+                <span>All Movies</span>
+                <BsArrowRight />
+              </div>
+            </Link>
+          </div>
+
+          <span>({watchedList?.length})</span>
         </section>
 
         {watchedList.length > 0 ? (
@@ -98,7 +103,7 @@ export default function Watchlists({ watchedMovies }) {
           </div>
         )}
 
-        <Link href={"/watchlists"}>
+        <Link href={"/watched-movies"}>
           <div className="text-white flex items-center justify-center gap-2 mt-7">
             <BsDash />
             <span>Back to Top</span>

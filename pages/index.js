@@ -57,10 +57,12 @@ export default function Home({ movies }) {
     updateMovie(movie);
   };
 
+  const title = `${SITE_NAME} | A movie watchlist tool`;
+
   return (
     <>
       <Head>
-        <title>{SITE_NAME} | A movie watchlist tool</title>t
+        <title>{title}</title>t
       </Head>
 
       <div className="mx-auto max-w-7xl px-5 lg:px-10 py-12 lg:py-14 ">
@@ -78,10 +80,10 @@ export default function Home({ movies }) {
             </Link>
           </div>
 
-          <div className=" lg:col-start-2 col-span-2 row-start-2 lg:row-start-1">
+          <div className=" lg:col-start-2 col-start-3 col-span-full lg:col-span-1">
             <button
               onClick={() => setAdd(!add)}
-              className="bg-white/90 text-black flex items-center justify-center gap-2 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-white/90 text-black flex items-center justify-center gap-2 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
             >
               <span>{add ? "Close" : "Add Movie"}</span>
 
@@ -96,16 +98,16 @@ export default function Home({ movies }) {
             </button>
           </div>
 
-          <div className="col-start-3 lg:col-start-5 col-span-2 row-start-1">
-            <Link href={"/watchlists"}>
+          <div className="col-start-1 lg:col-start-5 col-span-full row-start-3 lg:row-start-1 mt-7 lg:mt-0">
+            <Link href={"/watched-movies"}>
               <div className="bg-white/90 text-black flex items-center justify-center gap-2 font-bold py-2 px-4 rounded text-center">
-                <span>Watchlists</span>
+                <span>Watched Movies</span>
                 <BsArrowRight />
               </div>
             </Link>
           </div>
 
-          <section className="row-start-3 lg:row-start-2 col-span-4">
+          <section className="row-start-2 lg:row-start-2 col-span-4">
             {add ? (
               <AddMovie addMovie={addMovie} close={() => setAdd()} />
             ) : (

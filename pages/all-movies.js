@@ -63,10 +63,12 @@ export default function AllMovies({ movies }) {
     updateMovie(movie);
   };
 
+  const title = `All Movies | ${SITE_NAME}`;
+
   return (
     <>
       <Head>
-        <title>All Movies | {SITE_NAME}</title>
+        <title>{title}</title>
       </Head>
 
       <div className="mx-auto max-w-7xl px-5 lg:px-10 py-12 lg:py-14">
@@ -74,20 +76,23 @@ export default function AllMovies({ movies }) {
           All Movies
         </h1>
 
-        <section className="mb-7 flex space-x-7 items-center">
-          <Link href={"/"}>
-            <div className="text-white flex items-center gap-2">
-              <BsArrowLeft />
-              <span>Back to Home</span>
-            </div>
-          </Link>
+        <section className="flex w-full items-center justify-between mb-7 text-white">
+          <div className="flex space-x-7 items-center">
+            <Link href={"/"}>
+              <div className="flex items-center gap-2">
+                <BsArrowLeft />
+                <span>Back to Home</span>
+              </div>
+            </Link>
 
-          <Link href={"/watchlists"}>
-            <div className="text-white flex items-center gap-2">
-              <span>Watchlists</span>
-              <BsArrowRight />
-            </div>
-          </Link>
+            <Link href={"/watched-movies"}>
+              <div className="flex items-center gap-2">
+                <span>Watched Movies</span>
+                <BsArrowRight />
+              </div>
+            </Link>
+          </div>
+          <span>({moviesList?.length})</span>
         </section>
 
         {moviesList.length > 0 ? (
