@@ -1,4 +1,4 @@
-export const SITE_NAME = "Movies Mate";
+export const SITE_NAME = "Project-X2";
 
 export const OWNER = {
   name: "OreoGrapher",
