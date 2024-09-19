@@ -27,7 +27,7 @@ export default function MovieItem({
   };
 
   return (
-    <>
+    <div className="mb-4">
       {edit ? (
         <UpdatedMovie
           movie={movie}
@@ -35,7 +35,7 @@ export default function MovieItem({
           close={() => setEdit(false)}
         />
       ) : (
-        <div className="bg-white shadow-md rounded px-6 lg:px-8 pt-5 lg:pt-6 pb-7 w-full h-fit ">
+        <div className="bg-white shadow-md rounded px-6 lg:px-8 pt-5 lg:pt-6 pb-7 w-full">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-bold mb-2">{movie.title}</h2>
 
@@ -104,6 +104,6 @@ export default function MovieItem({
           {/* pending rating and review UI in future */}
         </div>
       )}
-    </>
+    </div>
   );
 }
